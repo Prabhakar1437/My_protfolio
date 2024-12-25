@@ -141,15 +141,17 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailjs.sendForm(serviceId, templateId, form.current, userId)
-      .then((result) => {
+    emailjs.sendForm(serviceId, templateId, form.current, userId).then(
+      (result) => {
         setOpen(true);
         form.current.reset();
-      }, (error) => {
+      },
+      (error) => {
         console.log(error.text);
-      });
+      }
+    );
+    console.log(form.current);
   };
-
 
   return (
     <Container>
